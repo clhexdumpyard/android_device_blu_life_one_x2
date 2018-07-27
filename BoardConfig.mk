@@ -13,7 +13,8 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
+
+# Edited by AlaskaLinuxUser
 
 LOCAL_PATH := device/blu/life_one_x2
 
