@@ -160,7 +160,6 @@ PRODUCT_PACKAGES += \
     libqcomfm_jni \
     qcom.fmradio
 
-# TODO:
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8937
