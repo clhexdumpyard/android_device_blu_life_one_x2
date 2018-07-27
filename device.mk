@@ -23,9 +23,8 @@ $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk
 
 $(call inherit-product, vendor/blu/life_one_x2/life_one_x2-vendor.mk)
 
-# TODO: Add overlay folders.
 # Overlays
-#DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
@@ -114,7 +113,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_platform_info_extcodec.xml:system/etc/audio_platform_info_extcodec.xml \
     $(LOCAL_PATH)/audio/aanc_tuning_mixer.txt:system/etc/aanc_tuning_mixer.txt
 
-# TODO:
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8937 \
@@ -136,7 +134,6 @@ PRODUCT_PACKAGES += \
     ethertypes \
     libebtc
 
-# TODO:
 # Fingerprint
 PRODUCT_PACKAGES += \
     fingerprintd

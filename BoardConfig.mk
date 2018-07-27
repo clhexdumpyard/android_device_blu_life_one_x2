@@ -93,7 +93,7 @@ BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BLUETOOTH_HCI_USE_MCT := true
 
-# TODO: Different camera.
+# Different camera?
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
 BOARD_QTI_CAMERA_32BIT_ONLY := true
@@ -128,7 +128,6 @@ TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_ION := true
 USE_OPENGL_RENDERER := true
 
-# TODO:
 # Fingerprint
 TARGET_USES_CUSTOM_FP_DAEMON := true
 
@@ -194,12 +193,10 @@ TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/fstab.qcom
 # Sensor
 USE_SENSOR_MULTI_HAL := true
 
-# TODO:
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy
 
-# TODO:
 # TWRP Support - Optional
 ifeq ($(WITH_TWRP),true)
 -include $(LOCAL_PATH)/twrp.mk
