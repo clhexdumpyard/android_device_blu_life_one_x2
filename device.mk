@@ -21,8 +21,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
-# TODO: Adding vendor files.
-#$(call inherit-product, vendor/yu/garlic/garlic-vendor.mk)
+$(call inherit-product, vendor/blu/life_one_x2/life_one_x2-vendor.mk)
 
 # TODO: Add overlay folders.
 # Overlays
@@ -36,7 +35,6 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
 
-# TODO:
 # Permissions
 PRODUCT_COPY_FILES += \
     external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:system/etc/permissions/com.dsi.ant.antradio_library.xml \
@@ -69,12 +67,11 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
-# TODO:
-# ANT
-PRODUCT_PACKAGES += \
-    AntHalService \
-    com.dsi.ant.antradio_library \
-    libantradio
+# ANT - I don't think we have this enabled.
+#PRODUCT_PACKAGES += \
+#    AntHalService \
+#    com.dsi.ant.antradio_library \
+#    libantradio
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -123,12 +120,6 @@ PRODUCT_PACKAGES += \
     camera.msm8937 \
     Snap
 
-# TODO:
-# Display
-PRODUCT_PACKAGES += \
-    camera.msm8937
-
-# TODO:
 # Display
 PRODUCT_PACKAGES += \
     copybit.msm8937 \
