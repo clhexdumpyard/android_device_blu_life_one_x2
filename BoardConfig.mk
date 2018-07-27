@@ -142,11 +142,10 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 USE_DEVICE_SPECIFIC_GPS := true
 TARGET_NO_RPC := true
 
-# TODO:
 # Init
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
-TARGET_INIT_VENDOR_LIB := libinit_garlic
-TARGET_LIBINIT_DEFINES_FILE := device/yu/garlic/init/init_garlic.cpp
+TARGET_INIT_VENDOR_LIB := libinit_life_one_x2
+TARGET_LIBINIT_DEFINES_FILE := device/blu/life_one_x2/init/init_life_one_x2.cpp
 
 # TODO:
 # Keymaster
