@@ -185,7 +185,6 @@ BOARD_USES_QC_TIME_SERVICES := true
 # RIL
 TARGET_RIL_VARIANT := caf
 
-# TODO:
 # Recovery
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/fstab.qcom
 

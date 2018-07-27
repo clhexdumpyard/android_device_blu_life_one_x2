@@ -179,17 +179,14 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
     $(LOCAL_PATH)/keylayout/qpnp_pon.kl:system/usr/keylayout/qpnp_pon.kl
 
-# TODO:
 # IRQ
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/msm_irqbalance.conf:system/vendor/etc/msm_irqbalance.conf
 
-# TODO:
 # IRSC
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
 
-# TODO:
 # Lights
 PRODUCT_PACKAGES += \
     lights.msm8937
@@ -208,7 +205,6 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libstagefrighthw
 
-# TODO:
 # Power
 PRODUCT_PACKAGES += \
     power.msm8937
@@ -218,7 +214,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libjson
 
-# TODO:
 # Ramdisk
 PRODUCT_PACKAGES += \
     init.qcom.power.rc \
@@ -239,7 +234,6 @@ PRODUCT_PACKAGES += \
     libcnefeatureconfig \
     libxml2
 
-# TODO:
 # Sensors
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/hals.conf:system/etc/sensors/hals.conf \
