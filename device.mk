@@ -76,7 +76,6 @@ PRODUCT_PACKAGES += \
     com.dsi.ant.antradio_library \
     libantradio
 
-# TODO:
 # Audio
 PRODUCT_PACKAGES += \
     audiod \
@@ -90,7 +89,6 @@ PRODUCT_PACKAGES += \
     libqcompostprocbundle \
     tinymix
 
-# TODO:
 # Audio configuration
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf \
