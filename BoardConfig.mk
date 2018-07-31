@@ -116,9 +116,9 @@ BOARD_HARDWARE_CLASS += hardware/cyanogen/cmhw
 BOARD_USES_QCNE := true
 TARGET_LDPRELOAD := libNimsWrap.so
 
-# TODO:
+# TODO: A lot of cryptfs errors.
 # Crypto
-TARGET_HW_DISK_ENCRYPTION := true
+#TARGET_HW_DISK_ENCRYPTION := true
 
 # TODO:
 # Display

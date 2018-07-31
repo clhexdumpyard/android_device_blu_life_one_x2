@@ -1,6 +1,13 @@
 #
-# system.prop for garlic
+# system.prop for Life_One_X2
 #
+
+# ADB debugging
+persist.service.adb.enable=1
+persist.service.debuggable=1
+persist.sys.usb.config=mtp,adb
+ro.secure=0
+ro.debuggable=1
 
 # Audio
 af.fast_track_multiplier=1
