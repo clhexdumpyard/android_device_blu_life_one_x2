@@ -18,6 +18,8 @@
 
 LOCAL_PATH := device/blu/life_one_x2
 
+TARGET_OTA_ASSERT_DEVICE := life_one_x2,Life_One_X2
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
