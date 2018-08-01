@@ -118,7 +118,7 @@ TARGET_LDPRELOAD := libNimsWrap.so
 
 # TODO: A lot of cryptfs errors.
 # Crypto
-#TARGET_HW_DISK_ENCRYPTION := true
+TARGET_HW_DISK_ENCRYPTION := false
 
 # TODO:
 # Display
