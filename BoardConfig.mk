@@ -96,10 +96,10 @@ BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BLUETOOTH_HCI_USE_MCT := true
 
-# Different camera?
+# Different camera? TODO: camera work?
 # Camera
-USE_DEVICE_SPECIFIC_CAMERA := true
-BOARD_QTI_CAMERA_32BIT_ONLY := true
+USE_DEVICE_SPECIFIC_CAMERA := false
+# BOARD_QTI_CAMERA_32BIT_ONLY := true
 
 # TODO:
 # Charger
@@ -116,9 +116,8 @@ BOARD_HARDWARE_CLASS += hardware/cyanogen/cmhw
 BOARD_USES_QCNE := true
 TARGET_LDPRELOAD := libNimsWrap.so
 
-# TODO: A lot of cryptfs errors.
 # Crypto
-TARGET_HW_DISK_ENCRYPTION := false
+TARGET_HW_DISK_ENCRYPTION := true
 
 # TODO:
 # Display
