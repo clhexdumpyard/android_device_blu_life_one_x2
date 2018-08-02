@@ -193,19 +193,19 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     lights.msm8937
 
-# TODO:
+# TODO: Is this a problem?
 # OMX
-PRODUCT_PACKAGES += \
-    libc2dcolorconvert \
-    libOmxAacEnc \
-    libOmxAmrEnc \
-    libOmxCore \
-    libOmxEvrcEnc \
-    libOmxQcelp13Enc \
-    libOmxSwVencHevc \
-    libOmxVdec \
-    libOmxVenc \
-    libstagefrighthw
+#PRODUCT_PACKAGES += \
+#    libc2dcolorconvert \
+#    libOmxAacEnc \
+#    libOmxAmrEnc \
+#    libOmxCore \
+#    libOmxEvrcEnc \
+#    libOmxQcelp13Enc \
+#    libOmxSwVencHevc \
+#    libOmxVdec \
+#    libOmxVenc \
+#    libstagefrighthw
 
 # Power
 PRODUCT_PACKAGES += \
