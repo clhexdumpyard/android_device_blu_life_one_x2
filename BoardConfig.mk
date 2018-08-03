@@ -16,6 +16,8 @@
 
 DEVICE_PATH := device/blu/life_one_x2
 
+TARGET_OTA_ASSERT_DEVICE := life_one_x2,Life_One_X2
+
 # Define platform before including any common things
 include $(DEVICE_PATH)/PlatformConfig.mk
 
