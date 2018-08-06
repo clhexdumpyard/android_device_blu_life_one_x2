@@ -1,4 +1,3 @@
-ifneq ($(BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE),)
 ifneq ($(BUILD_TINY_ANDROID),true)
 
 LOCAL_PATH := $(call my-dir)
@@ -27,7 +26,8 @@ LOCAL_SRC_FILES += \
     LocAdapterBase.cpp \
     ContextBase.cpp \
     LocDualContext.cpp \
-    loc_core_log.cpp
+    loc_core_log.cpp \
+    SystemStatus.cpp
 
 LOCAL_CFLAGS += \
      -fno-short-enums \
@@ -48,11 +48,11 @@ LOCAL_COPY_HEADERS:= \
     gps_extended_c.h \
     gps_extended.h \
     loc_core_log.h \
-    LocAdapterProxyBase.h
+    LocAdapterProxyBase.h \
+    SystemStatus.h
 
 LOCAL_PRELINK_MODULE := false
 
 include $(BUILD_SHARED_LIBRARY)
 
 endif # not BUILD_TINY_ANDROID
-endif # BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE

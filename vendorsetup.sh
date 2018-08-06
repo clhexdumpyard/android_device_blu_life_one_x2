@@ -1,0 +1,3 @@
+add_lunch_combo lineage_life_one_x2-user
+add_lunch_combo lineage_life_one_x2-userdebug
+add_lunch_combo lineage_life_one_x2-eng

@@ -1,4 +1,4 @@
-/* Copyright (c) 2009-2015, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2009-2016, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -46,6 +46,7 @@
 #include <time.h>
 #include <new>
 #include <LocEngAdapter.h>
+#include <SystemStatus.h>
 
 #include <cutils/sched_policy.h>
 #ifndef USE_GLIB
@@ -90,8 +91,6 @@ using namespace loc_core;
 
 boolean configAlreadyRead = false;
 unsigned int agpsStatus = 0;
-loc_gps_cfg_s_type gps_conf;
-loc_sap_cfg_s_type sap_conf;
 
 /* Parameter spec table */
 static const loc_param_s_type gps_conf_table[] =
@@ -500,7 +499,7 @@ struct LocEngSuplMode : public LocMsg {
         locallog();
     }
     inline virtual void proc() const {
-        mUlp->setCapabilities(getCarrierCapabilities());
+        mUlp->setCapabilities(ContextBase::getCarrierCapabilities());
     }
     inline  void locallog() const {
     }
@@ -508,6 +507,31 @@ struct LocEngSuplMode : public LocMsg {
         locallog();
     }
 };
+
+//        case LOC_ENG_MSG_SET_NMEA_TYPE:
+struct LocEngSetNmeaTypes : public LocMsg {
+    LocEngAdapter* mAdapter;
+    uint32_t  nmeaTypesMask;
+    inline LocEngSetNmeaTypes(LocEngAdapter* adapter,
+                                uint32_t typesMask) :
+        LocMsg(), mAdapter(adapter), nmeaTypesMask(typesMask)
+    {
+        locallog();
+    }
+    inline virtual void proc() const {
+        // set the nmea types
+        mAdapter->setNMEATypes(nmeaTypesMask);
+    }
+    inline void locallog() const
+    {
+        LOC_LOGV("LocEngSetNmeaTypes %u\n",nmeaTypesMask);
+    }
+    inline virtual void log() const
+    {
+        locallog();
+    }
+};
+
 
 //        case LOC_ENG_MSG_LPP_CONFIG:
 struct LocEngLppConfig : public LocMsg {
@@ -903,8 +927,14 @@ void LocEngReportNmea::proc() const {
     gettimeofday(&tv, (struct timezone *) NULL);
     int64_t now = tv.tv_sec * 1000LL + tv.tv_usec / 1000;
 
-    if (locEng->nmea_cb != NULL)
-        locEng->nmea_cb(now, mNmea, mLen);
+    // extract bug report info - this returns true if consumed by systemstatus
+    bool ret = LocDualContext::getSystemStatus()->setNmeaString(mNmea, mLen);
+    if (ret != true) {
+        // forward NMEA message to upper layer
+        if (locEng->nmea_cb != NULL) {
+            locEng->nmea_cb(now, mNmea, mLen);
+        }
+    }
 }
 inline void LocEngReportNmea::locallog() const {
     LOC_LOGV("LocEngReportNmea");
@@ -1683,24 +1713,6 @@ inline void LocEngReportGpsMeasurement::log() const {
   }
 #define INIT_CHECK(ctx, ret) STATE_CHECK(ctx, "instance not initialized", ret)
 
-uint32_t getCarrierCapabilities() {
-    #define carrierMSA (uint32_t)0x2
-    #define carrierMSB (uint32_t)0x1
-    #define gpsConfMSA (uint32_t)0x4
-    #define gpsConfMSB (uint32_t)0x2
-    uint32_t capabilities = gps_conf.CAPABILITIES;
-    if ((gps_conf.SUPL_MODE & carrierMSA) != carrierMSA) {
-        capabilities &= ~gpsConfMSA;
-    }
-    if ((gps_conf.SUPL_MODE & carrierMSB) != carrierMSB) {
-        capabilities &= ~gpsConfMSB;
-    }
-
-    LOC_LOGV("getCarrierCapabilities: CAPABILITIES %x, SUPL_MODE %x, carrier capabilities %x",
-             gps_conf.CAPABILITIES, gps_conf.SUPL_MODE, capabilities);
-    return capabilities;
-}
-
 /*===========================================================================
 FUNCTION    loc_eng_init
 
@@ -1758,11 +1770,12 @@ int loc_eng_init(loc_eng_data_s_type &loc_eng_data, LocCallbacks* callbacks,
 
     if ((event & LOC_API_ADAPTER_BIT_NMEA_1HZ_REPORT) && (gps_conf.NMEA_PROVIDER == NMEA_PROVIDER_AP))
     {
-        event = event ^ LOC_API_ADAPTER_BIT_NMEA_1HZ_REPORT; // unregister for modem NMEA report
+        // generate NMEA at AP
         loc_eng_data.generateNmea = true;
     }
-    else
+    else if (gps_conf.NMEA_PROVIDER == NMEA_PROVIDER_MP)
     {
+        // generate NMEA at MP
         loc_eng_data.generateNmea = false;
     }
 
@@ -1790,6 +1803,12 @@ static int loc_eng_reinit(loc_eng_data_s_type &loc_eng_data)
     adapter->sendMsg(new LocEngSensorControlConfig(adapter, sap_conf.SENSOR_USAGE,
                                                    sap_conf.SENSOR_PROVIDER));
     adapter->sendMsg(new LocEngAGlonassProtocol(adapter, gps_conf.A_GLONASS_POS_PROTOCOL_SELECT));
+
+    if ( adapter->getEvtMask() & LOC_API_ADAPTER_BIT_NMEA_1HZ_REPORT) {
+        NmeaSentenceTypesMask typesMask = loc_eng_data.generateNmea ?
+                LOC_NMEA_MASK_DEBUG_V02 : LOC_NMEA_ALL_SUPPORTED_MASK;
+        adapter->sendMsg(new LocEngSetNmeaTypes(adapter,typesMask));
+    }
 
     /* Make sure at least one of the sensor property is specified by the user in the gps.conf file. */
     if( sap_conf.GYRO_BIAS_RANDOM_WALK_VALID ||
@@ -1974,7 +1993,6 @@ static int loc_eng_stop_handler(loc_eng_data_s_type &loc_eng_data)
    int ret_val = LOC_API_ADAPTER_ERR_SUCCESS;
 
    if (loc_eng_data.adapter->isInSession()) {
-
        ret_val = loc_eng_data.adapter->stopFix();
        loc_eng_data.adapter->setInSession(FALSE);
    }
@@ -2857,8 +2875,9 @@ void loc_eng_handle_engine_up(loc_eng_data_s_type &loc_eng_data)
     if (loc_eng_data.adapter->isInSession()) {
         // This sets the copy in adapter to modem
         loc_eng_data.adapter->setInSession(false);
-        loc_eng_data.adapter->sendMsg(new LocEngStartFix(loc_eng_data.adapter));
+        loc_eng_start_handler(loc_eng_data);
     }
+
     EXIT_LOG(%s, VOID_RET);
 }
 

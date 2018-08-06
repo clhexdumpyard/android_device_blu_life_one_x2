@@ -70,8 +70,9 @@ on enable-low-power
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 40000
     write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 768000
 
-    # Re-enable thermal core_control
-    write /sys/module/msm_thermal/core_control/enabled 1
+    # Disable L2 gdhs lpm
+    write /sys/module/lpm_levels/system/pwr/pwr-l2-gdhs/idle_enabled "N"
+    write /sys/module/lpm_levels/system/perf/perf-l2-gdhs/idle_enabled "N"
 
     # Bring all cores online
     write /sys/devices/system/cpu/cpu1/online 1
@@ -81,12 +82,6 @@ on enable-low-power
     write /sys/devices/system/cpu/cpu5/online 1
     write /sys/devices/system/cpu/cpu6/online 1
     write /sys/devices/system/cpu/cpu7/online 1
-
-    # Disable L2-GDHS low power modes
-    write /sys/module/lpm_levels/system/pwr/pwr-l2-gdhs/idle_enabled N
-    write /sys/module/lpm_levels/system/pwr/pwr-l2-gdhs/suspend_enabled N
-    write /sys/module/lpm_levels/system/perf/perf-l2-gdhs/idle_enabled N
-    write /sys/module/lpm_levels/system/perf/perf-l2-gdhs/suspend_enabled N
 
     # Enable low power modes
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
@@ -110,6 +105,9 @@ on enable-low-power
     write /sys/devices/system/cpu/cpu0/core_ctl/busy_down_thres 40
     write /sys/devices/system/cpu/cpu0/core_ctl/offline_delay_ms 100
     write /sys/devices/system/cpu/cpu0/core_ctl/is_big_cluster 1
+
+    # Re-enable thermal core_control
+    write /sys/module/msm_thermal/core_control/enabled 1
 
     # Set per_process_reclaim tuning parameters
     write /sys/module/process_reclaim/parameters/enable_process_reclaim 1

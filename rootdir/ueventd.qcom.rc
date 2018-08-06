@@ -209,6 +209,8 @@
 /sys/devices/soc/78b7000.i2c/i2c-3/3-0020/input/input*    secure_touch_enable  0660   system  drmrpc
 /sys/devices/soc/78b7000.i2c/i2c-3/3-0038/input/input*    secure_touch         0440   system  drmrpc
 /sys/devices/soc/78b7000.i2c/i2c-3/3-0038/input/input*    secure_touch_enable  0660   system  drmrpc
+/sys/devices/soc/78b7000.i2c/i2c-3/3-004b/input/input*    secure_touch         0440   system  drmrpc
+/sys/devices/soc/78b7000.i2c/i2c-3/3-004b/input/input*    secure_touch_enable  0660   system  drmrpc
 
 # vm_bms
 /dev/vm_bms               0660   system     system
@@ -254,3 +256,6 @@
 /sys/devices/soc/soc:fpc1020		irq	        		0660   system     system
 /sys/devices/soc/soc:fpc1020      	wakeup_enable	        	0220   system     system
 /sys/devices/soc/soc:fpc1020      	compatible_all	        	0220   system     system
+
+# goodix
+/dev/goodix_fp            0666   root       root
