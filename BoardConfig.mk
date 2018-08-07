@@ -53,8 +53,8 @@ BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_CONFIG := alaskalinuxuser_defconfig
 TARGET_KERNEL_SOURCE := kernel/blu/life_one_x2
 
-# ANT - I don't think we have this enabled.
-# BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
+# ANT
+BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
 # Audio
 AUDIO_FEATURE_ENABLED_ACDB_LICENSE := true

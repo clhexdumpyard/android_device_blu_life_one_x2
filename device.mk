@@ -69,10 +69,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
 # ANT - I don't think we have this enabled.
-#PRODUCT_PACKAGES += \
-#    AntHalService \
-#    com.dsi.ant.antradio_library \
-#    libantradio
+PRODUCT_PACKAGES += \
+    AntHalService \
+    com.dsi.ant.antradio_library \
+    libantradio
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -195,17 +195,17 @@ PRODUCT_PACKAGES += \
 
 # TODO: Is this a problem?
 # OMX
-#PRODUCT_PACKAGES += \
-#    libc2dcolorconvert \
-#    libOmxAacEnc \
-#    libOmxAmrEnc \
-#    libOmxCore \
-#    libOmxEvrcEnc \
-#    libOmxQcelp13Enc \
-#    libOmxSwVencHevc \
-#    libOmxVdec \
-#    libOmxVenc \
-#    libstagefrighthw
+PRODUCT_PACKAGES += \
+    libc2dcolorconvert \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxCore \
+    libOmxEvrcEnc \
+    libOmxQcelp13Enc \
+    libOmxSwVencHevc \
+    libOmxVdec \
+    libOmxVenc \
+    libstagefrighthw
 
 # Power
 PRODUCT_PACKAGES += \
