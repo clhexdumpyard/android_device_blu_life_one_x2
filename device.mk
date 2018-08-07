@@ -181,6 +181,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
     $(LOCAL_PATH)/keylayout/qpnp_pon.kl:system/usr/keylayout/qpnp_pon.kl
 
+# Fonts - clean up missing fonts to clear up errors in logs.
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/fonts/DroidSansFallback.ttf:system/fonts/DroidSansFallback.ttf \
+    $(LOCAL_PATH)/fonts/MTLmr3m.ttf:system/fonts/MTLmr3m.ttf \
+    $(LOCAL_PATH)/fonts/NanumGothic.ttf:system/fonts/NanumGothic.ttf
+
 # IRQ
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/msm_irqbalance.conf:system/vendor/etc/msm_irqbalance.conf
