@@ -98,8 +98,8 @@ BLUETOOTH_HCI_USE_MCT := true
 
 # Different camera? TODO: camera work?
 # Camera
-USE_DEVICE_SPECIFIC_CAMERA := false
-# BOARD_QTI_CAMERA_32BIT_ONLY := true
+USE_DEVICE_SPECIFIC_CAMERA := true
+BOARD_QTI_CAMERA_32BIT_ONLY := true
 
 # TODO:
 # Charger
