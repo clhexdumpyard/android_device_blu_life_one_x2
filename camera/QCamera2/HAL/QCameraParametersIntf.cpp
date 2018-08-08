@@ -342,34 +342,6 @@ int32_t QCameraParametersIntf::getEffectValue()
     return mImpl->getEffectValue();
 }
 
-bool QCameraParametersIntf::isInstantAECEnabled()
-{
-    Mutex::Autolock lock(mLock);
-    CHECK_PARAM_INTF(mImpl);
-    return mImpl->isInstantAECEnabled();
-}
-
-bool QCameraParametersIntf::isInstantCaptureEnabled()
-{
-    Mutex::Autolock lock(mLock);
-    CHECK_PARAM_INTF(mImpl);
-    return mImpl->isInstantCaptureEnabled();
-}
-
-uint8_t QCameraParametersIntf::getAecFrameBoundValue()
-{
-    Mutex::Autolock lock(mLock);
-    CHECK_PARAM_INTF(mImpl);
-    return mImpl->getAecFrameBoundValue();
-}
-
-uint8_t QCameraParametersIntf::getAecSkipDisplayFrameBound()
-{
-    Mutex::Autolock lock(mLock);
-    CHECK_PARAM_INTF(mImpl);
-    return mImpl->getAecSkipDisplayFrameBound();
-}
-
 int32_t QCameraParametersIntf::getExifDateTime(
         String8 &dateTime, String8 &subsecTime)
 {
@@ -750,7 +722,7 @@ bool QCameraParametersIntf::isHDRThumbnailProcessNeeded()
     return mImpl->isHDRThumbnailProcessNeeded();
 }
 
-void QCameraParametersIntf::setMinPpMask(cam_feature_mask_t min_pp_mask)
+void QCameraParametersIntf::setMinPpMask(uint32_t min_pp_mask)
 {
     Mutex::Autolock lock(mLock);
     CHECK_PARAM_INTF(mImpl);
@@ -802,7 +774,7 @@ uint32_t QCameraParametersIntf::getExifBufIndex(uint32_t captureIndex)
     return mImpl->getExifBufIndex(captureIndex);
 }
 
-bool QCameraParametersIntf::needThumbnailReprocess(cam_feature_mask_t *pFeatureMask)
+bool QCameraParametersIntf::needThumbnailReprocess(uint32_t *pFeatureMask)
 {
     Mutex::Autolock lock(mLock);
     CHECK_PARAM_INTF(mImpl);
@@ -1026,7 +998,7 @@ int32_t QCameraParametersIntf::updatePpFeatureMask(cam_stream_type_t stream_type
 }
 
 int32_t QCameraParametersIntf::getStreamPpMask(cam_stream_type_t stream_type,
-        cam_feature_mask_t &pp_mask)
+        uint32_t &pp_mask)
 {
     Mutex::Autolock lock(mLock);
     CHECK_PARAM_INTF(mImpl);
@@ -1308,11 +1280,11 @@ int32_t QCameraParametersIntf::bundleRelatedCameras(bool sync, uint32_t sessioni
     return mImpl->bundleRelatedCameras(sync, sessionid);
 }
 
-uint8_t QCameraParametersIntf::fdModeInVideo()
+bool QCameraParametersIntf::isFDInVideoEnabled()
 {
     Mutex::Autolock lock(mLock);
     CHECK_PARAM_INTF(mImpl);
-    return mImpl->fdModeInVideo();
+    return mImpl->isFDInVideoEnabled();
 }
 
 bool QCameraParametersIntf::isOEMFeatEnabled()
@@ -1362,24 +1334,6 @@ int32_t QCameraParametersIntf::checkFeatureConcurrency()
     Mutex::Autolock lock(mLock);
     CHECK_PARAM_INTF(mImpl);
     return mImpl->checkFeatureConcurrency();
-}
-
-int32_t QCameraParametersIntf::setInstantAEC(uint8_t enable, bool initCommit)
-{
-    Mutex::Autolock lock(mLock);
-    CHECK_PARAM_INTF(mImpl);
-    return mImpl->setInstantAEC(enable, initCommit);
-}
-
-int32_t QCameraParametersIntf::getAnalysisInfo(
-        bool fdVideoEnabled,
-        bool hal3,
-        uint32_t featureMask,
-        cam_analysis_info_t *pAnalysisInfo)
-{
-    Mutex::Autolock lock(mLock);
-    CHECK_PARAM_INTF(mImpl);
-    return mImpl->getAnalysisInfo(fdVideoEnabled, hal3, featureMask, pAnalysisInfo);
 }
 
 }; // namespace qcamera
