@@ -131,7 +131,7 @@ TARGET_USES_ION := true
 USE_OPENGL_RENDERER := true
 
 # Fingerprint
-TARGET_USES_CUSTOM_FP_DAEMON := true
+# TARGET_USES_CUSTOM_FP_DAEMON := true
 
 # TODO:
 # Filesystem
