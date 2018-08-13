@@ -79,59 +79,61 @@ special_mode_mask values:
 <ChromatixConfigurationRoot>
   <CommonChromatixInfo>
     <ChromatixName>
-      <ISPCommon>ov5670_f5670bq_common</ISPCommon>
-      <PostProc>ov5670_f5670bq_postproc</PostProc>
-      <CPPPreview>ov5670_f5670bq_cpp_preview</CPPPreview>
-      <CPPSnapshot>ov5670_f5670bq_cpp_snapshot</CPPSnapshot>
-      <CPPLiveshot>ov5670_f5670bq_cpp_liveshot</CPPLiveshot>
-    </ChromatixName>
-    <ChromatixName special_mode_mask="ZOOM_UPSCALE">
-      <CPPSnapshot>ov5670_f5670bq_cpp_us_chromatix</CPPSnapshot>
-    </ChromatixName>
-    <ChromatixName special_mode_mask="ZOOM_DOWNSCALE">
-      <CPPSnapshot>ov5670_f5670bq_cpp_ds_chromatix</CPPSnapshot>
+      <ISPCommon>p7203_sy_imx258_common</ISPCommon>
+      <PostProc>p7203_sy_imx258_postproc</PostProc>
+      <CPPPreview>p7203_sy_imx258_cpp_preview</CPPPreview>
+      <CPPSnapshot>p7203_sy_imx258_cpp_snapshot</CPPSnapshot>
+      <CPPLiveshot>p7203_sy_imx258_cpp_liveshot</CPPLiveshot>
     </ChromatixName>
   </CommonChromatixInfo>
   <ResolutionChromatixInfo>
     <ChromatixName sensor_resolution_index="0">
-      <ISPPreview>ov5670_f5670bq_snapshot</ISPPreview>
-      <ISPSnapshot>ov5670_f5670bq_snapshot</ISPSnapshot>
-      <ISPVideo>ov5670_f5670bq_video_full</ISPVideo>
-      <CPPVideo>ov5670_f5670bq_cpp_video_full</CPPVideo>
-      <A3Preview>ov5670_f5670bq_zsl_preview</A3Preview>
-      <A3Video>ov5670_f5670bq_zsl_video</A3Video>
+      <ISPPreview>p7203_sy_imx258_snapshot</ISPPreview>
+      <ISPSnapshot>p7203_sy_imx258_snapshot</ISPSnapshot>
+      <ISPVideo>p7203_sy_imx258_default_video</ISPVideo>
+      <CPPVideo>p7203_sy_imx258_cpp_video</CPPVideo>
+      <A3Preview>p7203_sy_imx258_zsl_preview_bu64244gwz</A3Preview>
+      <A3Video>p7203_sy_imx258_zsl_video_bu64244gwz</A3Video>
     </ChromatixName>
     <ChromatixName sensor_resolution_index="1">
-      <ISPPreview>ov5670_f5670bq_preview</ISPPreview>
-      <ISPSnapshot>ov5670_f5670bq_preview</ISPSnapshot>
-      <ISPVideo>ov5670_f5670bq_default_video</ISPVideo>
-      <CPPVideo>ov5670_f5670bq_cpp_video</CPPVideo>
-      <A3Preview>ov5670_f5670bq_a3_default_preview</A3Preview>
-      <A3Video>ov5670_f5670bq_a3_default_video</A3Video>
+      <ISPPreview>p7203_sy_imx258_preview</ISPPreview>
+      <ISPSnapshot>p7203_sy_imx258_preview</ISPSnapshot>
+      <ISPVideo>p7203_sy_imx258_preview</ISPVideo>
+      <CPPVideo>p7203_sy_imx258_cpp_video</CPPVideo>
+      <A3Preview>p7203_sy_imx258_4k_preview_bu64244gwz</A3Preview>
+      <A3Video>p7203_sy_imx258_4k_video_bu64244gwz</A3Video>
     </ChromatixName>
     <ChromatixName sensor_resolution_index="2">
-      <ISPPreview>ov5670_f5670bq_hfr_60</ISPPreview>
-      <ISPSnapshot>ov5670_f5670bq_hfr_60</ISPSnapshot>
-      <ISPVideo>ov5670_f5670bq_hfr_60</ISPVideo>
-      <CPPVideo>ov5670_f5670bq_cpp_hfr_60</CPPVideo>
-      <A3Preview>ov5670_f5670bq_a3_hfr_60</A3Preview>
-      <A3Video>ov5670_f5670bq_a3_hfr_60</A3Video>
+      <ISPPreview>p7203_sy_imx258_preview</ISPPreview>
+      <ISPSnapshot>p7203_sy_imx258_preview</ISPSnapshot>
+      <ISPVideo>p7203_sy_imx258_preview</ISPVideo>
+      <CPPVideo>p7203_sy_imx258_cpp_video</CPPVideo>
+      <A3Preview>p7203_sy_imx258_default_preview_bu64244gwz</A3Preview>
+      <A3Video>p7203_sy_imx258_default_video_bu64244gwz</A3Video>
     </ChromatixName>
     <ChromatixName sensor_resolution_index="3">
-      <ISPPreview>ov5670_f5670bq_hfr_90</ISPPreview>
-      <ISPSnapshot>ov5670_f5670bq_hfr_90</ISPSnapshot>
-      <ISPVideo>ov5670_f5670bq_hfr_90</ISPVideo>
-      <CPPVideo>ov5670_f5670bq_cpp_hfr_90</CPPVideo>
-      <A3Preview>ov5670_f5670bq_a3_hfr_90</A3Preview>
-      <A3Video>ov5670_f5670bq_a3_hfr_90</A3Video>
+      <ISPPreview>p7203_sy_imx258_hfr_60</ISPPreview>
+      <ISPSnapshot>p7203_sy_imx258_hfr_60</ISPSnapshot>
+      <ISPVideo>p7203_sy_imx258_hfr_60</ISPVideo>
+      <CPPVideo>p7203_sy_imx258_cpp_hfr_60</CPPVideo>
+      <A3Preview>p7203_sy_imx258_hfr_60_bu64244gwz</A3Preview>
+      <A3Video>p7203_sy_imx258_hfr_60_bu64244gwz</A3Video>
     </ChromatixName>
     <ChromatixName sensor_resolution_index="4">
-      <ISPPreview>ov5670_f5670bq_hfr_120</ISPPreview>
-      <ISPSnapshot>ov5670_f5670bq_hfr_120</ISPSnapshot>
-      <ISPVideo>ov5670_f5670bq_hfr_120</ISPVideo>
-      <CPPVideo>ov5670_f5670bq_cpp_hfr_120</CPPVideo>
-      <A3Preview>ov5670_f5670bq_a3_hfr_120</A3Preview>
-      <A3Video>ov5670_f5670bq_a3_hfr_120</A3Video>
+      <ISPPreview>p7203_sy_imx258_hfr_90</ISPPreview>
+      <ISPSnapshot>p7203_sy_imx258_hfr_90</ISPSnapshot>
+      <ISPVideo>p7203_sy_imx258_hfr_90</ISPVideo>
+      <CPPVideo>p7203_sy_imx258_cpp_hfr_90</CPPVideo>
+      <A3Preview>p7203_sy_imx258_hfr_90_bu64244gwz</A3Preview>
+      <A3Video>p7203_sy_imx258_hfr_90_bu64244gwz</A3Video>
+    </ChromatixName>
+    <ChromatixName sensor_resolution_index="5">
+      <ISPPreview>p7203_sy_imx258_hfr_120</ISPPreview>
+      <ISPSnapshot>p7203_sy_imx258_hfr_120</ISPSnapshot>
+      <ISPVideo>p7203_sy_imx258_hfr_120</ISPVideo>
+      <CPPVideo>p7203_sy_imx258_cpp_hfr_120</CPPVideo>
+      <A3Preview>p7203_sy_imx258_hfr_120_bu64244gwz</A3Preview>
+      <A3Video>p7203_sy_imx258_hfr_120_bu64244gwz</A3Video>
     </ChromatixName>
   </ResolutionChromatixInfo>
 </ChromatixConfigurationRoot>
