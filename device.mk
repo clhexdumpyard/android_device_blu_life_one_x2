@@ -116,7 +116,7 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    Snap
+    Snap \
     camera.msm8937
 
 # Camera stuff from tenshi device.
