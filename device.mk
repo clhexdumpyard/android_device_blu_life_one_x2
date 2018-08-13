@@ -116,8 +116,8 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    Snap \
-    camera.msm8937
+    Snap
+#    camera.msm8937
 
 # Camera stuff from tenshi device. # Added more from BLOX2 system/etc/camera folder.
 PRODUCT_COPY_FILES += \
