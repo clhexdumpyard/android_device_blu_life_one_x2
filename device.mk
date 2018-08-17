@@ -34,7 +34,7 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
 
-# frameworks/native/data/etc/android.hardware.fingerprint.xml:system/etc/permissions/android.hardware.fingerprint.xml \
+#   frameworks/native/data/etc/android.hardware.fingerprint.xml:system/etc/permissions/android.hardware.fingerprint.xml \
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -116,8 +116,8 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    Snap
-#    camera.msm8937
+    Snap \
+    camera.msm8937
 
 # Display
 PRODUCT_PACKAGES += \
@@ -136,7 +136,7 @@ PRODUCT_PACKAGES += \
     libebtc
 
 # Fingerprint
-#PRODUCT_PACKAGES += \
+# PRODUCT_PACKAGES += \
 #    fingerprintd
 
 # TODO:
@@ -162,6 +162,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/etc/sap.conf:system/etc/sap.conf \
     $(LOCAL_PATH)/gps/etc/xtwifi.conf:system/etc/xtwifi.conf
 
+# TODO:
 # Media
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
@@ -197,6 +198,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     lights.msm8937
 
+# TODO: Is this a problem?
 # OMX
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
@@ -214,6 +216,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     power.msm8937
 
+# TODO:
 # QMI
 PRODUCT_PACKAGES += \
     libjson
@@ -231,6 +234,7 @@ PRODUCT_PACKAGES += \
     ueventd.qcom.rc \
     fstab.qcom
 
+# TODO:
 # RIL
 PRODUCT_PACKAGES += \
     librmnetctl \
