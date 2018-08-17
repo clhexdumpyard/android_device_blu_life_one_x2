@@ -119,25 +119,6 @@ PRODUCT_PACKAGES += \
     Snap
 #    camera.msm8937
 
-# Camera stuff from tenshi device. # Added more from BLOX2 system/etc/camera folder.
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/camera/msm8937_camera.xml:system/etc/camera/msm8937_camera.xml \
-    $(LOCAL_PATH)/configs/camera/ov5670_f5670bq_chromatix.xml:system/etc/camera/ov5670_f5670bq_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/ov5675_d5v15b_chromatix.xml:system/etc/camera/ov5675_d5v15b_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/s5k3p3_chromatix.xml:system/etc/camera/s5k3p3_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/ov13850_q13v06k_chromatix.xml:system/etc/camera/ov13850_q13v06k_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/imx230_qc2002_with_gyro_chromatix.xml:system/etc/camera/imx230_qc2002_with_gyro_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/s5k3l8_f3l8yam_chromatix.xml:system/etc/camera/s5k3l8_f3l8yam_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/p7203_gb_s5k4h8_chromatix.xml:system/etc/camera/p7203_gb_s5k4h8_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/p7203_gb_imx258_chromatix.xml:system/etc/camera/p7203_gb_imx258_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/ov8856_chromatix.xml:system/etc/camera/ov8856_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/imx230_qc2002_chromatix.xml:system/etc/camera/imx230_qc2002_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/p7705_sunny_s5k4h8_chromatix.xml:system/etc/camera/p7705_sunny_s5k4h8_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/s5k3l8_mono_chromatix.xml:system/etc/camera/s5k3l8_mono_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/imx258_mono_chromatix.xml:system/etc/camera/imx258_mono_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/p7705_sunny_0x11_s5k4h8_chromatix.xml:system/etc/camera/p7705_sunny_0x11_s5k4h8_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/p7203_sy_imx258_chromatix.xml:system/etc/camera/p7203_sy_imx258_chromatix.xml
-
 # Display
 PRODUCT_PACKAGES += \
     copybit.msm8937 \
