@@ -2,9 +2,9 @@
 
 Device tree for Blu Life One X2 (BLOX2). Https://thealaskalinuxuser.wordpress.com
 
-Marshmallow - Under developement! WIP by the AlaskaLinuxUser
+Nougat - Under developement! WIP by the AlaskaLinuxUser
 
-As of 08/17/2018 Build - Marshmallow
+As of 08/17/2018 Build - Nougat
 What works:
 + USB/MTP/PTP/ADB
 + Sound
