@@ -16,6 +16,6 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),life_one_x2)
+ifeq ($(TARGET_DEVICE),garlic)
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
 endif

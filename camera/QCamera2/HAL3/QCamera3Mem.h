@@ -35,7 +35,7 @@
 #include <utils/Mutex.h>
 
 // Camera dependencies
-#include "camera3.h"
+#include "hardware/camera3.h"
 
 extern "C" {
 #include "mm_camera_interface.h"
@@ -72,6 +72,7 @@ public:
     virtual int32_t markFrameNumber(uint32_t index, uint32_t frameNumber) = 0;
     virtual int32_t getFrameNumber(uint32_t index) = 0;
     virtual int32_t getBufferIndex(uint32_t frameNumber) = 0;
+    virtual int32_t getOldestFrameNumber(uint32_t &index) = 0;
 
     QCamera3Memory();
     virtual ~QCamera3Memory();
@@ -116,6 +117,7 @@ public:
     virtual int32_t markFrameNumber(uint32_t index, uint32_t frameNumber);
     virtual int32_t getFrameNumber(uint32_t index);
     virtual int32_t getBufferIndex(uint32_t frameNumber);
+    virtual int32_t getOldestFrameNumber(uint32_t &index);
 
 protected:
     virtual void *getPtrLocked(uint32_t index);
@@ -123,7 +125,6 @@ private:
     int allocOneBuffer(struct QCamera3MemInfo &memInfo,
             unsigned int heap_id, size_t size);
     void deallocOneBuffer(struct QCamera3MemInfo &memInfo);
-    bool mQueueAll;
     uint32_t mMaxCnt;
 };
 
@@ -143,6 +144,7 @@ public:
     virtual int32_t markFrameNumber(uint32_t index, uint32_t frameNumber);
     virtual int32_t getFrameNumber(uint32_t index);
     virtual int32_t getBufferIndex(uint32_t frameNumber);
+    virtual int32_t getOldestFrameNumber(uint32_t &index);
 
     void *getBufferHandle(uint32_t index);
 protected:

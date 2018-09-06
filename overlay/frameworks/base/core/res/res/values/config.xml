@@ -93,29 +93,6 @@
     <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveBatteryLed">true</bool>
 
-    <!-- What can the LEDs on this device do? If defined, this overrides all of the
-         older settings:
-         com.android.internal.R.bool.config_multiColorNotificationLed
-         com.android.internal.R.bool.config_multiColorBatteryLed
-         org.cyanogenmod.platform.internal.R.bool.config_multipleNotificationLeds
-         com.android.internal.R.bool.config_ledCanPulse
-         org.cyanogenmod.platform.internal.R.bool.config_useSegmentedBatteryLed
-         org.cyanogenmod.platform.internal.R.bool.config_adjustableNotificationLedBrightness
-         Use the following values from NotificationManager:
-         LIGHTS_RGB_NOTIFICATION = 0
-         LIGHTS_RGB_BATTERY = 1
-         LIGHTS_MULTIPLE_LED = 2
-         LIGHTS_LED_PULSE = 3
-         LIGHTS_SEGMENTED_BATTERY_LIGHTS = 4
-         LIGHTS_ADJUSTABLE_NOTIFICATION_BRIGHTNESS = 5
-    -->
-
-    <integer-array translatable="false" name="config_deviceLightCapabilities">
-        <item>0</item>
-        <item>1</item>
-        <item>3</item>
-    </integer-array>
-
     <!-- When true use the linux /dev/input/event subsystem to detect the switch changes
          on the headphone/microphone jack. When false use the older uevent framework. -->
     <bool name="config_useDevInputEventForAudioJack">true</bool>
@@ -206,9 +183,6 @@
 
     <!-- Boolean indicating whether Hotspot 2.0/Passpoint and ANQP queries is enabled -->
     <bool translatable="false" name="config_wifi_hotspot2_enabled">true</bool>
-
-    <!-- IpReachability monitor enable/disable -->
-    <bool translatable="false" name="config_wifi_ipreachability_monitor">false</bool>
 
     <!-- This string array should be overridden by the device to present a list of network
          attributes.  This is used by the connectivity manager to decide which networks can coexist
@@ -313,10 +287,6 @@
     <!-- Is the device capable of hot swapping an UICC Card -->
     <bool name="config_hotswapCapable">true</bool>
 
-    <!-- Flag indicating emergency calls will always use IMS irrespective of the state of
-    the IMS connection -->
-    <bool name="useImsAlwaysForEmergencyCall">true</bool>
-
     <!-- Flag specifying whether VoLTE is available on device -->
     <bool name="config_device_volte_available">true</bool>
 
@@ -380,15 +350,6 @@
          turned off and the screen off animation has been performed. -->
     <bool name="config_dozeAfterScreenOff">true</bool>
 
-    <!-- Set this to true to enable the platform's auto-power-save modes like doze and
-         app standby.  These are not enabled by default because they require a standard
-         cloud-to-device messaging service for apps to interact correctly with the modes
-         (such as to be able to deliver an instant message to the device even when it is
-         dozing).  This should be enabled if you have such services and expect apps to
-         correctly use them when installed on your device.  Otherwise, keep this disabled
-         so that applications can still use their own mechanisms. -->
-    <bool name="config_enableAutoPowerModes">true</bool>
-
    <!-- Configure wifi tcp buffersizes in the form:
          rmem_min,rmem_def,rmem_max,wmem_min,wmem_def,wmem_max -->
     <string name="config_wifi_tcp_buffers" translatable="false">524288,1048576,4194304,262144,524288,1048576</string>
@@ -423,4 +384,6 @@
     <!-- Flag indicating which package name can access the persistent data partition -->
     <string name="config_persistentDataPackageName" translatable="false">com.google.android.gms</string>
 
+    <!-- Whether notify fingerprint client of successful cancelled authentication -->
+    <bool name="config_notifyClientOnFingerprintCancelSuccess">true</bool>
 </resources>

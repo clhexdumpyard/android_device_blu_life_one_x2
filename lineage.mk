@@ -23,8 +23,7 @@ $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 PRODUCT_NAME := lineage_life_one_x2
 BOARD_VENDOR := blu
 
-# TODO: What is this?
-#PRODUCT_GMS_CLIENTID_BASE := android-micromax
+PRODUCT_GMS_CLIENTID_BASE := android-micromax
 
 ## Use the latest approved GMS identifiers unless running a signed build
 ifneq ($(SIGN_BUILD),true)

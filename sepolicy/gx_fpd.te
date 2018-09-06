@@ -1,8 +1,5 @@
 type gx_fpd, domain;
 type gx_fpd_exec, exec_type, file_type;
-type gx_fpd_device, dev_type;
-type gx_fpd_service, service_manager_type;
-type gx_fpd_data_file, file_type, data_file_type;
 
 # gx_fpd
 init_daemon_domain(gx_fpd)
@@ -35,10 +32,14 @@ allow gx_fpd tee_device:chr_file rw_file_perms;
 allow gx_fpd ion_device:chr_file rw_file_perms;
 
 # Allow binder transfer with fingerprintd
-allow gx_fpd fingerprintd:binder transfer;
+allow gx_fpd fingerprintd:binder { transfer call };
 
 # Allow socket creation
 allow gx_fpd self:netlink_socket create;
+allow gx_fpd self:capability dac_override;
+
+# Allow read write sysfs
+allow gx_fpd sysfs_fp:file rw_file_perms;
 
 #allow read/write property
 set_prop(gx_fpd, system_prop)
