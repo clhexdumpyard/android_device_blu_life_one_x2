@@ -18,9 +18,9 @@
 $(call inherit-product, device/blu/life_one_x2/full_life_one_x2.mk)
 
 # Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+$(call inherit-product, vendor/useless/config/common_full_phone.mk)
 
-PRODUCT_NAME := lineage_life_one_x2
+PRODUCT_NAME := useless_life_one_x2
 BOARD_VENDOR := blu
 
 # TODO: What is this?
